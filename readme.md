@@ -88,4 +88,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📧 Contact
 Durgesh Tiwari - durgeshtiwari000x@gmail.com
 
-Project Link: https://github.com/bldxspark/flight_log_analyzer
+Project Link: (https://github.com/bldxspark/flight-log-analyzer)
