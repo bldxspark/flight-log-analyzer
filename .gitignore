@@ -7,13 +7,7 @@ __pycache__/
 *.so
 
 # Exclude virtual environment directories
-.venv/
-.env/
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+*venv*/
 
 # Exclude build and temporary directories
 build/
@@ -23,10 +17,6 @@ downloads/
 *.egg
 *.egg
 MANIFEST
-
-# Exclude logs and reports
-logs/
-flight_reports/
 
 # Exclude images
 images/
@@ -100,14 +90,9 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environments (consolidated)
 .env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+
 
 # Spyder project settings
 .spyderproject
@@ -130,4 +115,3 @@ dmypy.json
 # Project-specific ignores
 logs/
 flight_reports/
-images/
