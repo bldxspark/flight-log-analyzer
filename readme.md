@@ -86,6 +86,6 @@ A simple, user-friendly Streamlit web app for parsing and analyzing ArduPilot `.
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
-Your Name - your.email@example.com
+Durgesh Tiwari - durgeshtiwari000x@gmail.com
 
 Project Link: https://github.com/bldxspark/flight_log_analyzer
