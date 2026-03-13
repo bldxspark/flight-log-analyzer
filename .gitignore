@@ -18,9 +18,6 @@ downloads/
 *.egg
 MANIFEST
 
-# Exclude images
-images/
-
 # Distribution / packaging
 .Python
 develop-eggs/
@@ -115,4 +112,3 @@ dmypy.json
 # Project-specific ignores
 logs/
 flight_reports/
-images/

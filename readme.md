@@ -45,37 +45,47 @@ A simple, user-friendly Streamlit web app for parsing and analyzing ArduPilot `.
 - **ArduPilot Log File**: A valid `.bin` log from an ArduPilot-based drone
 - **Browser**: Modern web browser for the Streamlit UI
 
-## Installation
+## 🚀 Installation & Quick Start
+
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/bldxspark/flight_log_analyzer.git
    cd flight_log_analyzer
    ```
 
-## 🚀 Quick start
-1. Create and activate a virtual environment (recommended):
+2. **Create and activate a virtual environment**:
+   - **Windows (PowerShell)**:
    ```powershell
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    ```
-2. Install required packages:
+   - **macOS/Linux**:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. **Install required packages**:
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the app:
+
+4. **Run the app**:
    ```bash
    python -m streamlit run app.py
    ```
-4. In the browser UI, upload an ArduPilot `.bin` log and click **Run Analysis**.
-
-(images/bin_file_uploaded.png)
-(images/report_generated.png)
 
 ## 📁 Output
 - Generated reports are saved under `flight_reports/report_<n>/excel/flight_data.xlsx`
 - Uploaded logs are stored in `logs/`
 
-(images/download_report.png)
-
-## Notes
+## 📝 Notes
 - `.venv/`, `logs/`, `flight_reports/` and Python bytecode are ignored via `.gitignore`.
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Contact
+Your Name - your.email@example.com
+
+Project Link: https://github.com/bldxspark/flight_log_analyzer
