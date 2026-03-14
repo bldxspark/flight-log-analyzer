@@ -112,3 +112,4 @@ dmypy.json
 # Project-specific ignores
 logs/
 flight_reports/
+.vscode/

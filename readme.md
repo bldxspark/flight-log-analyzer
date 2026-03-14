@@ -3,29 +3,20 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 
-A simple, user-friendly Streamlit web app for parsing and analyzing ArduPilot `.bin` flight logs. Extract telemetry data (vibration, battery, GPS, flight modes), generate interactive graphs, and export downloadable Excel reports for drone performance insights.
+Flight Log Analyzer is a Streamlit app for parsing and analyzing ArduPilot `.bin` flight logs. It extracts telemetry such as vibration, battery data, GPS path, and flight modes, then presents interactive charts and an Excel report for download.
 
 ![Home Screen](images/home.png)
 
-## Table of Contents
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Output](#output)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## Features
-- **Log Parsing**: Reads ArduPilot `.bin` files using `pymavlink` for accurate telemetry extraction.
-- **Data Extraction**: Pulls key metrics like vibration, battery voltage/current, GPS coordinates, and flight modes.
-- **Interactive Graphs**: Visualizes data with Plotly charts in the browser.
-- **Excel Export**: Generates multi-sheet Excel reports via pandas and openpyxl.
-- **Web UI**: Simple Streamlit interface for uploading logs and running analysis.
+
+- Parse ArduPilot `.bin` logs with `pymavlink`
+- Visualize vibration, power, and GPS telemetry with Plotly
+- Review detected flight modes in a table
+- Export analysis results to a multi-sheet Excel report
+- Use a simple browser-based workflow through Streamlit
 
 ## Screenshots
+
 ### Home Screen
 ![Home Screen](images/home.png)
 
@@ -40,52 +31,115 @@ A simple, user-friendly Streamlit web app for parsing and analyzing ArduPilot `.
 ### Download Report
 ![Download Report](images/download_report.png)
 
+## Tech Stack
+
+- Python
+- Streamlit
+- pymavlink
+- pandas
+- openpyxl
+- Plotly
+
+## Project Structure
+
+```text
+flight_log_analyzer/
+|-- app.py
+|-- analyzer.py
+|-- requirements.txt
+|-- render.yaml
+|-- images/
+```
+
 ## Prerequisites
-- **Python**: 3.8 or higher
-- **ArduPilot Log File**: A valid `.bin` log from an ArduPilot-based drone
-- **Browser**: Modern web browser for the Streamlit UI
 
-## 🚀 Installation & Quick Start
+- Python 3.8 or higher
+- A valid ArduPilot `.bin` log file
+- A modern web browser
 
-1. **Clone the repository**:
+## Local Setup
+
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/bldxspark/flight_log_analyzer.git
    cd flight_log_analyzer
    ```
 
-2. **Create and activate a virtual environment**:
-   - **Windows (PowerShell)**:
+2. Create and activate a virtual environment:
+
+   Windows PowerShell:
    ```powershell
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    ```
-   - **macOS/Linux**:
+
+   macOS/Linux:
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate
    ```
 
-3. **Install required packages**:
+3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the app**:
+4. Run the app:
+
    ```bash
    python -m streamlit run app.py
    ```
 
-## 📁 Output
-- Generated reports are saved under `flight_reports/report_<n>/excel/flight_data.xlsx`
+## How It Works
+
+1. Upload an ArduPilot `.bin` file in the Streamlit UI.
+2. The app stores the uploaded file temporarily in `logs/`.
+3. `analyzer.py` reads MAVLink messages from the log and extracts telemetry.
+4. The app renders charts and tables in the browser.
+5. An Excel report is generated under `flight_reports/` and exposed through a download button.
+
+## Output
+
 - Uploaded logs are stored in `logs/`
+- Generated reports are stored in `flight_reports/report_<n>/excel/flight_data.xlsx`
 
-## 📝 Notes
-- `.venv/`, `logs/`, `flight_reports/` and Python bytecode are ignored via `.gitignore`.
+## Deployment
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+This project is a Streamlit app, so it requires a Python server process. A plain Netlify site deployment will return a 404 because Netlify expects static files or a supported serverless architecture, and this repository does not include either.
 
-## 📧 Contact
+Recommended deployment targets:
+
+- Streamlit Community Cloud
+- Render
+- Railway
+
+### Render
+
+This repository includes `render.yaml` for Render deployment.
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
+
+To deploy on Render:
+
+1. Push the repository to GitHub.
+2. Create a new Blueprint or Web Service in Render.
+3. Point it to this repository.
+4. Deploy and open the generated service URL.
+
+## Limitations
+
+- File storage is local to the running instance, so uploaded logs and generated reports are not durable in a production cloud environment.
+- Analysis currently runs synchronously in the app process, which is fine for a prototype but not ideal for a multi-user production system.
+
+## Contributing
+
+Contributions, improvements, and bug reports are welcome.
+
+## Contact
+
 Durgesh Tiwari - durgeshtiwari000x@gmail.com
 
 Project Link: (https://github.com/bldxspark/flight-log-analyzer)
